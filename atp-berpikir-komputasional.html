@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Alur Tujuan Pembelajaran</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #eef6fb 0%, #f7fbfd 100%);
+    padding: 40px;
+    color: #1f2d3d;
+  }
+  .sheet {
+    max-width: 1500px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 40px 48px 30px;
+    box-shadow: 0 20px 60px rgba(30,80,120,0.08);
+  }
+
+  .header { text-align:center; margin-bottom: 22px; }
+  .header h1 {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #15324d;
+  }
+  .header .dots { color:#9fc6e0; font-weight:700; letter-spacing:4px; font-size:20px; }
+  .badge {
+    display:inline-block;
+    margin-top: 12px;
+    background: linear-gradient(135deg,#1d5d8f,#2c7fb8);
+    color:#fff;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight:700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 18px rgba(29,93,143,0.25);
+  }
+
+  table { width:100%; border-collapse: separate; border-spacing: 0 14px; margin-top: 26px; }
+  thead th {
+    background: linear-gradient(135deg,#3a8dc7,#1d5d8f);
+    color:#fff;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    padding: 14px 16px;
+    text-align:left;
+  }
+  thead th:first-child { border-radius: 14px 0 0 14px; text-align:center; }
+  thead th:last-child { border-radius: 0 14px 14px 0; }
+
+  tbody tr { background:#fff; }
+  tbody td {
+    padding: 18px 16px;
+    vertical-align: top;
+    font-size: 13.5px;
+    line-height: 1.55;
+    border-top: 1px solid #eef2f6;
+    border-bottom: 1px solid #eef2f6;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  tbody td:first-child {
+    border-left: 1px solid #eef2f6;
+    border-radius: 14px 0 0 14px;
+    text-align:center;
+  }
+  tbody td:last-child {
+    border-right: 1px solid #eef2f6;
+    border-radius: 0 14px 14px 0;
+  }
+
+  .stage-cell { width: 90px; }
+  .stage-num {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    color:#fff;
+    font-weight:800;
+    font-size: 19px;
+    display:flex; align-items:center; justify-content:center;
+    margin: 0 auto 6px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+  }
+  .stage-code { font-weight:700; font-size: 13px; color:#42505e; }
+
+  .icon-cell { width: 70px; text-align:center; }
+  .icon-circle {
+    width: 50px; height:50px;
+    border-radius: 16px;
+    display:flex; align-items:center; justify-content:center;
+    font-size: 24px;
+    margin: 0 auto;
+  }
+
+  .tujuan-cell { width: 360px; font-weight: 600; color:#1f2d3d; }
+  .tujuan-row { display:flex; gap:12px; align-items:flex-start; }
+  .tujuan-row .icon-circle { flex-shrink:0; }
+  .tujuan-row span.tp-text { padding-top:4px; }
+
+  ul.pokok { padding-left: 18px; }
+  ul.pokok li { margin-bottom: 4px; }
+  ul.pokok li::marker { color:#7a8a9a; }
+
+  ul.kegiatan { list-style:none; padding:0; }
+  ul.kegiatan li { margin-bottom: 6px; display:flex; gap:8px; align-items:flex-start; }
+  ul.kegiatan li .ck { flex-shrink:0; font-weight:800; }
+
+  .hasil-cell { width: 230px; }
+  .hasil-row { display:flex; gap:10px; align-items:flex-start; font-weight:600; }
+  .hasil-icon { font-size: 22px; flex-shrink:0; }
+
+  /* row color themes */
+  .row1 .stage-num,.row1 .ck,.row1 .hasil-icon{ color:#1d5d8f; }
+  .row1 .stage-num{ background:#1d5d8f; }
+  .row1 .icon-circle{ background:#e3f0fa; }
+  .row1 td{ background:#f7fbfe; }
+
+  .row2 .stage-num{ background:#1f8a8a; }
+  .row2 .ck,.row2 .hasil-icon{ color:#1f8a8a; }
+  .row2 .icon-circle{ background:#e1f5f3; }
+  .row2 td{ background:#f5fcfb; }
+
+  .row3 .stage-num{ background:#3fa365; }
+  .row3 .ck,.row3 .hasil-icon{ color:#3fa365; }
+  .row3 .icon-circle{ background:#e6f7ea; }
+  .row3 td{ background:#f6fcf7; }
+
+  .row4 .stage-num{ background:#e3a017; }
+  .row4 .ck,.row4 .hasil-icon{ color:#e3a017; }
+  .row4 .icon-circle{ background:#fdf2dc; }
+  .row4 td{ background:#fefaf2; }
+
+  .row5 .stage-num{ background:#e8732f; }
+  .row5 .ck,.row5 .hasil-icon{ color:#e8732f; }
+  .row5 .icon-circle{ background:#fde9dc; }
+  .row5 td{ background:#fef8f3; }
+
+  .row6 .stage-num{ background:#8b5fbf; }
+  .row6 .ck,.row6 .hasil-icon{ color:#8b5fbf; }
+  .row6 .icon-circle{ background:#efe5f8; }
+  .row6 td{ background:#faf7fd; }
+
+  .row7 .stage-num{ background:#e0577f; }
+  .row7 .ck,.row7 .hasil-icon{ color:#e0577f; }
+  .row7 .icon-circle{ background:#fce3ec; }
+  .row7 td{ background:#fdf6f9; }
+
+  .footer {
+    margin-top: 26px;
+    background: linear-gradient(135deg,#eaf4fb,#f3f9fc);
+    border-radius: 18px;
+    padding: 22px 30px;
+    display:flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .footer .item { flex:1; display:flex; gap:12px; align-items:flex-start; }
+  .footer .ficon { font-size: 26px; }
+  .footer h4 { font-size: 13.5px; color:#15324d; margin-bottom:4px; }
+  .footer p { font-size: 12px; color:#56697a; line-height:1.5; text-align: justify; text-justify: inter-word; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="header">
+    <h1><span class="dots">····</span> ALUR TUJUAN PEMBELAJARAN (ATP) <span class="dots">····</span></h1>
+    <div class="badge">KONSENTRASI KEAHLIAN: SEMUA KONSENTRASI KEAHLIAN</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>TAHAP</th>
+        <th>TUJUAN PEMBELAJARAN (TP)</th>
+        <th>POKOK BAHASAN</th>
+        <th>KEGIATAN UTAMA</th>
+        <th>HASIL AKHIR</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr class="row1">
+        <td class="stage-cell"><div class="stage-num">1</div><div class="stage-code">2.1.1.</div></td>
+        <td class="tujuan-cell"><div class="tujuan-row"><div class="icon-circle">🧩</div><span class="tp-text">Menjelaskan konsep algoritma: logis, sistematis, dan terstruktur.</span></div></td>
+        <td><ul class="pokok">
+          <li>Pengertian dan ciri algoritma</li>
+          <li>Berpikir logis dan sistematis</li>
+          <li>Struktur penyusunan algoritma</li>
+          <li>Contoh algoritma dalam kehidupan sehari-hari</li>
+        </ul></td>
+        <td><ul class="kegiatan">
+          <li><span class="ck">✓</span> Mengamati contoh prosedur sehari-hari</li>
+          <li><span class="ck">✓</span> Mengidentifikasi ciri logis dan sistematis</li>
+          <li><span class="ck">✓</span> Menyusun langkah penyelesaian masalah sederhana</li>
+          <li><span class="ck">✓</span> Mendiskusikan struktur algoritma yang baik</li>
+        </ul></td>
+        <td class="hasil-cell"><div class="hasil-row"><span class="hasil-icon">🎯</span><span>Pemahaman konsep algoritma yang logis, sistematis, dan terstruktur.</span></div></td>
+      </tr>
+
+      <tr class="row2">
+        <td class="stage-cell"><div class="stage-num">2</div><div class="stage-code">2.1.2.</div></td>
+        <td class="tujuan-cell"><div class="tujuan-row"><div class="icon-circle">📦</div><span class="tp-text">Membedakan struktur data sederhana (array, list, stack, queue) dan fungsinya.</span></div></td>
+        <td><ul class="pokok">
+          <li>Array (struktur dan indeks)</li>
+          <li>List (penambahan dan penghapusan data)</li>
+          <li>Stack (LIFO)</li>
+          <li>Queue (FIFO)</li>
+        </ul></td>
+        <td><ul class="kegiatan">
+          <li><span class="ck">✓</span> Mengenal karakteristik tiap struktur data</li>
+          <li><span class="ck">✓</span> Membandingkan cara kerja array, list, stack, queue</li>
+          <li><span class="ck">✓</span> Mensimulasikan operasi dasar tiap struktur data</li>
+          <li><span class="ck">✓</span> Menentukan struktur data sesuai kasus</li>
+        </ul></td>
+        <td class="hasil-cell"><div class="hasil-row"><span class="hasil-icon">🗃️</span><span>Kemampuan membedakan dan memilih struktur data sesuai kebutuhan.</span></div></td>
+      </tr>
+
+      <tr class="row3">
+        <td class="stage-cell"><div class="stage-num">3</div><div class="stage-code">2.1.3.</div></td>
+        <td class="tujuan-cell"><div class="tujuan-row"><div class="icon-circle">🧮</div><span class="tp-text">Menerapkan proses komputasi: pengumpulan, pengolahan, dan validasi data.</span></div></td>
+        <td><ul class="pokok">
+          <li>Pengumpulan data</li>
+          <li>Pengolahan data (perhitungan, pengurutan)</li>
+          <li>Validasi dan pengecekan data</li>
+          <li>Penyajian hasil komputasi</li>
+        </ul></td>
+        <td><ul class="kegiatan">
+          <li><span class="ck">✓</span> Mengumpulkan data dari suatu kasus</li>
+          <li><span class="ck">✓</span> Mengolah data sesuai kebutuhan</li>
+          <li><span class="ck">✓</span> Memvalidasi keakuratan dan kelengkapan data</li>
+          <li><span class="ck">✓</span> Menyajikan hasil pengolahan data</li>
+        </ul></td>
+        <td class="hasil-cell"><div class="hasil-row"><span class="hasil-icon">📊</span><span>Data terkumpul, terolah, dan tervalidasi dengan benar.</span></div></td>
+      </tr>
+
+      <tr class="row4">
+        <td class="stage-cell"><div class="stage-num">4</div><div class="stage-code">2.1.4.</div></td>
+        <td class="tujuan-cell"><div class="tujuan-row"><div class="icon-circle">🔁</div><span class="tp-text">Menerapkan algoritma sekuensial, percabangan, dan perulangan untuk masalah sederhana.</span></div></td>
+        <td><ul class="pokok">
+          <li>Algoritma sekuensial</li>
+          <li>Struktur percabangan (if-else)</li>
+          <li>Struktur perulangan (loop)</li>
+          <li>Penerapan pada masalah sederhana</li>
+        </ul></td>
+        <td><ul class="kegiatan">
+          <li><span class="ck">✓</span> Menyusun langkah algoritma sekuensial</li>
+          <li><span class="ck">✓</span> Menerapkan percabangan pada kasus pengambilan keputusan</li>
+          <li><span class="ck">✓</span> Menerapkan perulangan pada kasus berulang</li>
+          <li><span class="ck">✓</span> Menguji dan memperbaiki algoritma</li>
+        </ul></td>
+        <td class="hasil-cell"><div class="hasil-row"><span class="hasil-icon">⚙️</span><span>Algoritma sekuensial, percabangan, dan perulangan diterapkan dengan tepat.</span></div></td>
+      </tr>
+
+      <tr class="row5">
+        <td class="stage-cell"><div class="stage-num">5</div><div class="stage-code">2.1.5.</div></td>
+        <td class="tujuan-cell"><div class="tujuan-row"><div class="icon-circle">📝</div><span class="tp-text">Merancang solusi dalam bentuk pseudocode yang sistematis.</span></div></td>
+        <td><ul class="pokok">
+          <li>Kaidah penulisan pseudocode</li>
+          <li>Notasi input, proses, output</li>
+          <li>Penerapan struktur kontrol pada pseudocode</li>
+          <li>Evaluasi dan perbaikan pseudocode</li>
+        </ul></td>
+        <td><ul class="kegiatan">
+          <li><span class="ck">✓</span> Menentukan masalah dan kebutuhan solusi</li>
+          <li><span class="ck">✓</span> Menyusun pseudocode secara sistematis</li>
+          <li><span class="ck">✓</span> Menerapkan struktur kontrol pada pseudocode</li>
+          <li><span class="ck">✓</span> Memeriksa dan menyempurnakan pseudocode</li>
+        </ul></td>
+        <td class="hasil-cell"><div class="hasil-row"><span class="hasil-icon">📃</span><span>Pseudocode solusi yang sistematis dan siap diimplementasikan.</span></div></td>
+      </tr>
+
+      <tr class="row6">
+        <td class="stage-cell"><div class="stage-num">6</div><div class="stage-code">2.1.6.</div></td>
+        <td class="tujuan-cell"><div class="tujuan-row"><div class="icon-circle">🖥️</div><span class="tp-text">Menjelaskan dan mensimulasikan model IPO pada arsitektur Von Neumann.</span></div></td>
+        <td><ul class="pokok">
+          <li>Komponen arsitektur Von Neumann</li>
+          <li>Model Input-Process-Output (IPO)</li>
+          <li>Alur data pada CPU dan memori</li>
+          <li>Simulasi sederhana model IPO</li>
+        </ul></td>
+        <td><ul class="kegiatan">
+          <li><span class="ck">✓</span> Mengidentifikasi komponen arsitektur Von Neumann</li>
+          <li><span class="ck">✓</span> Menjelaskan alur input, proses, dan output</li>
+          <li><span class="ck">✓</span> Mensimulasikan model IPO pada kasus sederhana</li>
+          <li><span class="ck">✓</span> Mempresentasikan hasil simulasi</li>
+        </ul></td>
+        <td class="hasil-cell"><div class="hasil-row"><span class="hasil-icon">💻</span><span>Simulasi model IPO pada arsitektur Von Neumann dipahami dengan baik.</span></div></td>
+      </tr>
+
+      <tr class="row7">
+        <td class="stage-cell"><div class="stage-num">7</div><div class="stage-code">2.1.7.</div></td>
+        <td class="tujuan-cell"><div class="tujuan-row"><div class="icon-circle">🔐</div><span class="tp-text">Menjelaskan peran sistem operasi serta mengatur privasi dan keamanan akun digital.</span></div></td>
+        <td><ul class="pokok">
+          <li>Fungsi dan peran sistem operasi</li>
+          <li>Manajemen file dan proses pada sistem operasi</li>
+          <li>Pengaturan privasi akun digital</li>
+          <li>Keamanan akun dan perangkat</li>
+        </ul></td>
+        <td><ul class="kegiatan">
+          <li><span class="ck">✓</span> Menjelaskan fungsi utama sistem operasi</li>
+          <li><span class="ck">✓</span> Mengelola file dan proses pada sistem operasi</li>
+          <li><span class="ck">✓</span> Mengatur privasi pada akun digital</li>
+          <li><span class="ck">✓</span> Menerapkan langkah keamanan akun</li>
+        </ul></td>
+        <td class="hasil-cell"><div class="hasil-row"><span class="hasil-icon">🛡️</span><span>Pemahaman peran sistem operasi serta akun digital yang aman dan terlindungi.</span></div></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <div class="item">
+      <div class="ficon">🎯</div>
+      <div><h4>TUJUAN AKHIR</h4><p>Membentuk peserta didik yang mampu berpikir algoritmik, memahami struktur data dan arsitektur komputer, serta menggunakan teknologi digital secara aman dan bertanggung jawab.</p></div>
+    </div>
+    <div class="item">
+      <div class="ficon">📖</div>
+      <div><h4>PENDEKATAN</h4><p>Praktik langsung, berbasis proyek, kolaboratif, dan kontekstual.</p></div>
+    </div>
+    <div class="item">
+      <div class="ficon">🧑‍🎓</div>
+      <div><h4>DIMENSI PROFIL LULUSAN</h4><p>Penalaran Kritis, Kreativitas, Kolaborasi, Kemandirian, Komunikasi, dan Kewargaan (digital).</p></div>
+    </div>
+    <div class="item">
+      <div class="ficon">📊</div>
+      <div><h4>ASESMEN</h4><p>Uji kinerja, proyek, portofolio, dan penilaian diri.</p></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
