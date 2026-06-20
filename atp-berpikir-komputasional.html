@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0064)file:///C:/Users/USER/Downloads/ATP_Algoritma_Pemrograman_3.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Alur Tujuan Pembelajaran</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
   * { box-sizing: border-box; margin:0; padding:0; }
+  html { color-scheme: light only; }
   body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(180deg, #eef6fb 0%, #f7fbfd 100%);
     padding: 40px;
     color: #1f2d3d;
+    color-scheme: light only;
   }
   .sheet {
     max-width: 1500px;
@@ -80,12 +82,15 @@
   .stage-num {
     width: 46px; height: 46px;
     border-radius: 50%;
-    color:#fff;
+    color:#ffffff !important;
     font-weight:800;
     font-size: 19px;
     display:flex; align-items:center; justify-content:center;
     margin: 0 auto 6px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    forced-color-adjust: none;
   }
   .stage-code { font-weight:700; font-size: 13px; color:#42505e; }
 
@@ -151,16 +156,72 @@
   .row7 .icon-circle{ background:#fce3ec; }
   .row7 td{ background:#fdf6f9; }
 
+  .cp-section {
+    margin-top: 32px;
+    background: linear-gradient(135deg,#f4f9fd 0%, #eef6fb 100%);
+    border: 1px solid #e1edf6;
+    border-radius: 22px;
+    padding: 28px 34px;
+    box-shadow: 0 10px 30px rgba(29,93,143,0.06);
+  }
+  .cp-section .cp-head {
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .cp-section .cp-icon {
+    width: 48px; height: 48px;
+    border-radius: 16px;
+    background: linear-gradient(135deg,#3a8dc7,#1d5d8f);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 22px;
+    color:#fff;
+    flex-shrink:0;
+    box-shadow: 0 6px 14px rgba(29,93,143,0.25);
+  }
+  .cp-section .cp-elemen {
+    font-size: 13.5px;
+    color:#7a8a9a;
+    font-weight:600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .cp-section .cp-elemen-title {
+    font-size: 20px;
+    font-weight:800;
+    color:#15324d;
+  }
+  .cp-section .cp-label {
+    display:inline-block;
+    font-size: 12.5px;
+    font-weight:700;
+    color:#1d5d8f;
+    background:#e3f0fa;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.4px;
+    margin-bottom: 12px;
+  }
+  .cp-section p.cp-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color:#3a4a5a;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
   .footer {
     margin-top: 26px;
     background: linear-gradient(135deg,#eaf4fb,#f3f9fc);
     border-radius: 18px;
     padding: 22px 30px;
     display:flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     gap: 20px;
   }
-  .footer .item { flex:1; display:flex; gap:12px; align-items:flex-start; }
+  .footer .item { flex:1 1 0; min-width:0; display:flex; gap:12px; align-items:flex-start; }
   .footer .ficon { font-size: 26px; }
   .footer h4 { font-size: 13.5px; color:#15324d; margin-bottom:4px; }
   .footer p { font-size: 12px; color:#56697a; line-height:1.5; text-align: justify; text-justify: inter-word; }
@@ -172,6 +233,18 @@
   <div class="header">
     <h1><span class="dots">····</span> ALUR TUJUAN PEMBELAJARAN (ATP) <span class="dots">····</span></h1>
     <div class="badge">KONSENTRASI KEAHLIAN: SEMUA KONSENTRASI KEAHLIAN</div>
+  </div>
+
+  <div class="cp-section">
+    <div class="cp-head">
+      <div class="cp-icon">🧠</div>
+      <div>
+        <div class="cp-elemen">Elemen</div>
+        <div class="cp-elemen-title">Berpikir Komputasional</div>
+      </div>
+    </div>
+    <span class="cp-label">CAPAIAN PEMBELAJARAN</span>
+    <p class="cp-text">Memahami konsep struktur data dan algoritma standar; menerapkan proses komputasi yang dilakukan manusia secara mandiri atau berkelompok untuk mendapatkan data yang berkualitas; menerapkan algoritma dan struktur data standar untuk menghasilkan berbagai solusi dalam menyelesaikan persoalan; menuliskan solusi rancangan program sederhana dalam format pseudocode yang dekat dengan bahasa komputer; memahami model dan menyimulasikan dinamika Input-Process-Output dalam sebuah komputer Von Neumann, serta memahami peran sistem operasi.</p>
   </div>
 
   <table>
@@ -335,5 +408,6 @@
   </div>
 
 </div>
-</body>
-</html>
+
+
+</body></html>
